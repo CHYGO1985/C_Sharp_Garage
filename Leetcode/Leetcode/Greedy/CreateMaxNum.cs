@@ -1,7 +1,7 @@
 ﻿using System;
 
 /**
- * @jingjiejiang Jan 02, 2018
+ * @jingjiejiang Jan 03, 2018
  */
 namespace Leetcode
 {
@@ -9,10 +9,22 @@ namespace Leetcode
     {
         public int[] maxNumber(int[] nums1, int[] nums2, int k)
         {
+            int limit = Math.Min(nums1.Length, k);
+            int[] max = new int[k];
 
+            for (int len = Math.Max(0, k - nums2.Length); len <= limit; len ++)
+            {
+                int[] part1 = getMaxNum(nums1, len);
+                int[] part2 = getMaxNum(nums2, k - len);
+
+                int[] temp = merge(part1, part2);
+                max = compare(max, temp, 0, 0) == true ? max : temp;
+            }
+
+            return max;
         }
 
-        public int[] merget(int[] nums1, int[] nums2){
+        public int[] merge(int[] nums1, int[] nums2){
 
             int[] res = new int[nums1.Length + nums2.Length];
             int idx1 = 0, idx2 = 0;
@@ -23,7 +35,7 @@ namespace Leetcode
                     nums1[idx1++] : nums2[idx2++];
             }
 
-            return 
+            return res;
         }
 
         // true: nums1, false: nums2
