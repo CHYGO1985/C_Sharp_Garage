@@ -25,6 +25,10 @@ namespace Leetcode.Hash
             resSet.CopyTo(resArr);
 
             return resArr;
+
+            //ref: https://leetcode.com/problems/intersection-of-two-arrays/discuss/82167/Concise-c-solution
+            //var set1 = new HashSet<int>(nums1);
+            //return nums2.Where(n => set1.Remove(n)).ToArray();
         }
     }
 }
