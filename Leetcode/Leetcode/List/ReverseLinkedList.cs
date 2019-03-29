@@ -6,22 +6,17 @@
  */
 namespace Leetcode.List
 {
-    public class ListNode
+    public class ReverseList
     {
-        public int val;
-        public ListNode next;
-        public ListNode(int x) { val = x; }
-    }
-
-    public class Solution
-    {
-        public ListNode ReverseList(ListNode head)
+        public ListNode ReverseList1(ListNode head)
         {
             if (head == null || head.next == null)
+            {
                 return head;
+            }
 
             ListNode headNext = head.next;
-            ListNode newHead = ReverseList(head.next);
+            ListNode newHead = ReverseList1(head.next);
             headNext.next = head;
             head.next = null;
             return newHead;
