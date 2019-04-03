@@ -11,11 +11,12 @@ namespace Leetcode.String
         public int TitleToNumber(string s)
         {
             int sum = 0;
+            int factor = 1;
 
             for (int offset = 0; offset < s.Length; offset ++)
             {
-                int factor = Convert.ToInt32(Math.Pow(26, offset));
                 sum += (s[s.Length - 1 - offset] - 'A' + 1) * factor;
+                factor *= 26;
             }
 
             return sum;
