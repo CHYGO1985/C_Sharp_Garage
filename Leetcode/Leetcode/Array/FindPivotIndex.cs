@@ -29,4 +29,24 @@ public class Class1
 
         return -1;
     }
+
+    // O(1) space
+    public int PivotIndex1(int[] nums)
+    {
+        if (nums.Length == 0) return -1;
+
+        sums[0] = nums[0];
+        int sum = nums.Sum();
+
+        int rightSum = 0, leftSum = 0;
+
+        for (int idx = 0; idx < nums.Length; idx++)
+        {
+            leftSum = (idx > 0) ? leftSum + nums[idx - 1] : 0;
+            rightSum = sum - nums[idx] - leftSum;
+            if (leftSum == rightSum) return idx;
+        }
+
+        return -1;
+    }
 }
