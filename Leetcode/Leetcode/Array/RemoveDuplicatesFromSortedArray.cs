@@ -9,29 +9,23 @@ public class Class1
     public int RemoveDuplicates(int[] nums)
     {
         if (nums == null || nums.Length == 0) return 0;
+        if (nums.Length == 1) return 1;
 
-        int head = 1, rear = nums.Length - 2;
-        int headNum = nums[head - 1], rearNum = nums[rear + 1];
+        int headIdx = 0, shiftIdx = 1;
 
-        while (headNum < rearNum && headNum != rearNum)
+        while (shiftIdx < nums.Length)
         {
-            while (headNum < rearNum && nums[head] != headNum)
+            while (shiftIdx < nums.Length && nums[headIdx] == nums[shiftIdx]) shiftIdx ++;
+
+            if (shiftIdx < nums.Length)
             {
-                headNum = nums[head];
-                head ++;
+                swap(nums, headIdx + 1, shiftIdx);
+                headIdx += 1;
+                shiftIdx += 1;
             }
-
-            while (headNum < rearNum && nums[rear] != rearNum)
-            {
-                rearNum = nums[rear];
-                rear --;
-            } 
-
-            if (nums[head] != nums[rear])
-
         }
 
-        return 
+        return headIdx + 1;
     }
 
     private void swap(int[] nums, int head, int rear)
