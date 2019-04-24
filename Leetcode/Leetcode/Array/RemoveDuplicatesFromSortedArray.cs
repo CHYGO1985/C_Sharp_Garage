@@ -16,7 +16,7 @@ public class Class1
         while (shiftIdx < nums.Length)
         {
             while (shiftIdx < nums.Length && nums[headIdx] == nums[shiftIdx]) shiftIdx ++;
-
+             
             if (shiftIdx < nums.Length)
             {
                 swap(nums, headIdx + 1, shiftIdx);
