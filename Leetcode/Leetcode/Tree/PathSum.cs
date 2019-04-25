@@ -17,9 +17,6 @@ public class Class1
             return sum == 0 ? true : false;
         }
 
-        if (root.left == null) return HasPathSum(root.right, sum);
-        if (root.right == null) return HasPathSum(root.left, sum);
-
         return HasPathSum(root.left, sum) || HasPathSum(root.right, sum);
     }
 }
