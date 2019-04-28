@@ -1,7 +1,7 @@
 ﻿using System;
 
 /*
- * @jingjiejiang Apr 27, 2019
+ * @jingjiejiang Apr 28, 2019
  */ 
 namespace Leetcode.List
 {
