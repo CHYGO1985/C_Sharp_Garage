@@ -30,41 +30,17 @@ public class Class1
 
     private void StackFiller(Stack stack, char character)
     {
-
-        switch (character)
+        if ((character == ')' && (char)stack.Peek() == '(')
+            || (character == '}' && (char)stack.Peek() == '{')
+            || (character == ']' && (char)stack.Peek() == '[')
+            )
         {
-            case ')' :
-                if ((char)stack.Peek() == '(')
-                {
-                    stack.Pop();
-                }
-                else
-                {
-                    stack.Push(character);
-                }
-                break;
-            case '}':
-                if ((char)stack.Peek() == '{')
-                {
-                    stack.Pop();
-                }
-                else
-                {
-                    stack.Push(character);
-                }
-                break;
-            case ']':
-                if ((char)stack.Peek() == '[')
-                {
-                    stack.Pop();
-                }
-                else
-                {
-                    stack.Push(character);
-                }
-                break;
-            default:
-                break;
+
+            stack.Pop();
+        }
+        else
+        {
+            stack.Push(character);
         }
     }
 }
